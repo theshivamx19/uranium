@@ -1,5 +1,4 @@
-let welcome = function() {
-    console.log('Welcome to my application. I am Sabiha and a part of FunctionUp Uranium cohort.')
+let welcome = function(){
+    console.log('Welcome to my application. I am Shivam and a part of FunctionUp Uranium cohort.')
 }
-
-module.exports.welcomeMessage = welcome
+module.exports.abc = welcome

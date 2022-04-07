@@ -1,17 +1,15 @@
-let printDate = function() {
-    let currentDate = new Date()
-    console.log('The current date is : ',currentDate)
+let trim = function(){
+    console.log("After using trim string is: " + "   functionup   " .trim())
 }
 
-let printMonth = function() {
-    let currentDate = new Date()
-    console.log('The current months is : ', currentDate.getMonth() + 1)
+let lower = function(){
+    console.log('After lower case: ', 'ShiVAm'. toLowerCase())
 }
 
-let getBatchInfo = function() {
-    console.log('Uranium, W2D4, the topic for today is Nodejs module system assignment discussion')
+let upper = function(){
+    console.log('After upper case: ', 'mauryA'. toUpperCase())
 }
 
-module.exports.printTodaysDate = printDate
-module.exports.printCurrentMonth = printMonth
-module.exports.printBatchInformation = getBatchInfo
+module.exports.trimstr = trim
+module.exports.lowerstr = lower
+module.exports.upperstr = upper

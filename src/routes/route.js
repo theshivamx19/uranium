@@ -1,47 +1,43 @@
 const express = require('express');
-const loggerModule = require('../logger/logger')
-const helperModule = require('../util/helper')
-const formatterModule = require('../validator/formatter')
+const abcwelcome = require('../logger/logger')
+const abctrim = require('../util/helper')
 const lodash = require('lodash')
 
 const router = express.Router();
 
 router.get('/test-me', function (req, res) {
-    loggerModule.welcomeMessage()
-    helperModule.printTodaysDate()
-    helperModule.printCurrentMonth()
-    helperModule.printBatchInformation()
-    formatterModule.trimString()
-    formatterModule.changeCaseToUpper()
-    formatterModule.changeCaseToLower()
+   abcwelcome.abc()
+   abctrim.trimstr()
+   abctrim.lowerstr()
+   abctrim.upperstr()
     res.send('My first ever api!')
 });
 
-router.get('/hello', function (req, res) {
-// Problem a)
-let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-let subArrays = lodash.chunk(months, 3)
-console.log('The result after splitting the months array is ', subArrays)
+router.get('/test-me1', function (req, res) {
+    let monthname = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+    let subarray = lodash.chunk(monthname, 3)
+    console.log("After dividing the months into 4 parts", subarray)
 
-// Problem b)
 
-let oddNumbers = [1,3,5,7,9,11,13,15,17,19]
-console.log('The last 9 odd numbers in the array are: ', lodash.tail(oddNumbers))
+let oddarray = [1,3,5,7,9,11,13,15,17,19]
+let tailoddnum = lodash.tail(oddarray)
+console.log("tail 9 odd numbers are:", tailoddnum)
 
-// Problem c)
-let a = [1 , 2, 1, 4]
-let b = [2, 3, 4, 3]
-let c = [6, 1, 5, 10]
-let d = [1, 1, 1]
-let e = [1, 2, 3, 4, 5]
+let arr1 = [1, 5, 4, 2, 7]
+let arr2 = [3, 8, 2, 6]
+let arr3 = [6, 9, 1, 2]
+let arr4 = [3, 5]
+let arr5 = [2, 8, 7]
+console.log('Union of these array are:', lodash.union(arr1, arr2, arr3, arr4, arr5))
 
-console.log('Final array or unique numbers is : ', lodash.union(a, b, c, d, e))
+let fromobj =[["horror","The Shining"],["drama","Titanic"],["thriller","Shutter Island"],["fantasy","Pans Labyrinth"]]
+console.log('the object and keys are:', lodash.fromPairs(fromobj))
+console.log("I have Done!!")
 
-// Problem d)
-let arrayOfKeyValuePairs = [["horror","The Shining"],["drama","Titanic"],["thriller","Shutter Island"],["fantasy","Pans Labyrinth"]]
-console.log('The object created from arrays is :', lodash.fromPairs(arrayOfKeyValuePairs))
-    res.send('My hello api!')
 });
+
+    
+
 
 
 
