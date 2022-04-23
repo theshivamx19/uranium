@@ -48,8 +48,8 @@ const updateUser = async function (req, res) {
   }
 
   let userData = req.body;
-  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData);
-  res.send({ status: updatedUser, data: updatedUser });
+  let updatedUser = await userModel.findOneAndUpdate({ _id: userId }, userData,{new:true});
+  res.send({ status: "updatedUser", data: updatedUser });
 };
 
 const deleteUser = async function (req, res) {
@@ -59,7 +59,7 @@ const deleteUser = async function (req, res) {
     return res.send({ status: false, msg: "No such user exists" });
   }
   let deletedUser = await userModel.findOneAndUpdate({ _id: userId }, {$set:{isDeleted:true}},{new:true});
-  res.send({ status: deletedUser, data: deletedUser });
+  res.send({ status: "deletedUser", data: deletedUser });
 
 };
 
